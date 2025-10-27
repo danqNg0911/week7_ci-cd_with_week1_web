@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: week7-cicd-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/danqNg0911/week7_ci-cd_with_week1_web.git   
+    targetRevision: main
+    path: k8s                                                     
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: week7                                               
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
