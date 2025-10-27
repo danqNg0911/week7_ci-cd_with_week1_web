@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: week7-cicd
+  namespace: week7
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: week7-cicd
+  template:
+    metadata:
+      labels:
+        app: week7-cicd
+    spec:
+      containers:
+        - name: week7-cicd
+          image: dangnguyen091105/week7-cicd:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: "prod"
