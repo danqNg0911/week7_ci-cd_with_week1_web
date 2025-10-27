@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: week7-cicd
+  namespace: week7
 spec:
   replicas: 3
   selector:
