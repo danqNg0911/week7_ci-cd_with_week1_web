@@ -1,4 +1,4 @@
-name: CI-CD Spring Boot with ArgoCD - Week7
+name: CI-CD Spring Boot with ArgoCD - week7
 
 on:
   push:
