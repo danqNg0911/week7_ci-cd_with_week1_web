@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: spring-web
+  name: week7-cicd
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: spring-web
+      app: week7-cicd
   template:
     metadata:
       labels:
-        app: spring-web
+        app: week7-cicd
     spec:
       containers:
-        - name: spring-web
-          image: dangnguyen091105/spring_web:latest   # ✅ thay bằng image thật của bạn
+        - name: week7-cicd
+          image: dangnguyen091105/week7-cicd:latest   # ✅ thay bằng image thật của bạn
           ports:
             - containerPort: 8080
           env:

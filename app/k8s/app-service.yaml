@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: spring-web
+  name: week7-cicd
 spec:
   type: LoadBalancer
   selector:
-    app: spring-web
+    app: week7-cicd
   ports:
     - port: 8080
       targetPort: 8080
