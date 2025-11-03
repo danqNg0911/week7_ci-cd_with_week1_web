@@ -17,7 +17,7 @@ spec:
         - name: week7-cicd
           image: dangnguyen091105/week7-cicd:latest   # ✅ thay bằng image thật của bạn
           ports:
-            - containerPort: 8080
+            - containerPort: 8083
           env:
             - name: SPRING_DATASOURCE_URL
               value: jdbc:mysql://mysql:3306/demo_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
