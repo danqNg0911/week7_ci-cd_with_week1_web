@@ -1,0 +1,19 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: week7-cicd-highcpu
+  namespace: week7
+  labels:
+    release: kube-prometheus
+spec:
+  groups:
+  - name: week7-cicd.rules
+    rules:
+    - alert: HighPodCPUUsage
+      expr: sum(rate(container_cpu_usage_seconds_total{namespace="week7", pod=~"week7-cicd.*"}[1m])) by (pod) * 100 > 80
+      for: 1m
+      labels:
+        severity: warning
+      annotations:
+        summary: "CPU usage high on {{ $labels.pod }}"
+        description: "Pod {{ $labels.pod }} CPU usage > 80% for 1m"
