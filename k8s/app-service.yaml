@@ -3,10 +3,13 @@ kind: Service
 metadata:
   name: week7-cicd
   namespace: week7
+  labels:
+    app: week7-cicd 
 spec:
   type: LoadBalancer
   selector:
     app: week7-cicd
   ports:
-    - port: 8080
+    - name: http
+      port: 8080
       targetPort: 8080
