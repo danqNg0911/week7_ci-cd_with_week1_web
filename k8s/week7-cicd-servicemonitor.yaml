@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: week7-cicd-monitor
+  namespace: week7
+  labels:
+    release: kube-prometheus     
+spec:
+  selector:
+    matchLabels:
+      app: week7-cicd
+  namespaceSelector:
+    matchNames:
+      - week7
+  endpoints:
+    - port: http
+      path: /actuator/prometheus
+      interval: 15s
